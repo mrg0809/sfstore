@@ -1,3 +1,4 @@
+import CarWidget from "../CarWidget/CarWidget";
 
 function NavBar() {
     return (
@@ -40,11 +41,8 @@ function NavBar() {
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Carrito</strong>
-          </a>
           <a class="button is-light">
-            Log in
+            <CarWidget />
           </a>
         </div>
       </div>
