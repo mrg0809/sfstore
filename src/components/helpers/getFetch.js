@@ -19,3 +19,16 @@ export const getFetch = new Promise((resolve, reject)=>{
         reject('400 not found')
     }
 })
+
+const producto = {id: '1', modelo: 'VN0EE3BKA', marca: 'Vans', descripcion: 'Authentic Black', precio: 899, foto:'image'}
+
+export const getFetchOne = new Promise ((resolve, reject)=>{
+    let condition=true
+    if (condition) {
+        setTimeout(()=>{
+            resolve(producto)
+        }, 2000)
+    } else {
+        reject('400 not found')
+    }
+})
