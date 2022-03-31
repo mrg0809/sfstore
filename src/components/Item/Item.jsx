@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Item({producto}) {
     return (
         <div class='column is-four is-one-quarter'>
@@ -17,7 +19,9 @@ function Item({producto}) {
                         <div class="content">
                             {producto.descripcion}
                         <hr />
-                            <button class="button is-info is-light is-outlined is-fullwidth">Detalle</button>
+                            <Link to={`/detalle/${producto.modelo}`}>
+                                <button class="button is-info is-light is-outlined is-fullwidth">Detalle</button>
+                            </Link>    
                         </div>
                 </div>
             </div>

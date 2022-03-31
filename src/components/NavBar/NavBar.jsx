@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router-dom";
 import CarWidget from "../CarWidget/CarWidget";
 
 function NavBar() {
@@ -5,9 +6,9 @@ function NavBar() {
 
 <nav class="navbar is-white has-shadow is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="http://sportsfan.com.mx">
+    <Link to='/' class="navbar-item">
       <img src="https://cdn.shopify.com/s/files/1/0284/3046/7144/files/Logo_SF_180x.png?v=1589620799"></img>
-    </a>
+    </Link>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -18,32 +19,32 @@ function NavBar() {
 
   <div id="navbarBasicExample is-center" class="navbar-menu">
   <div class="navbar-start">
-          <router-link to="/subfamilia/dama" class="navbar-item">Caballero</router-link>
-          <router-link to="/subfamilia/caballero" class="navbar-item">Dama</router-link>
-          <router-link to="/subfamilia/ninios" class="navbar-item">Niños</router-link>
+          <Link to="/subfamilia/Dama" class="navbar-item">Dama</Link>
+          <Link to="/subfamilia/Caballero" class="navbar-item">Caballero</Link>
+          <Link to="/subfamilia/Ninios" class="navbar-item">Niños</Link>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">Marcas</a>
             <div class="navbar-dropdown">
-              <router-link to="/adidas" class="navbar-item">Adidas</router-link>
-              <router-link to="/dc" class="navbar-item">DC</router-link>
-              <router-link to="/jansport" class="navbar-item">Jansport</router-link>
-              <router-link to="/nike" class="navbar-item">Nike</router-link>
-              <router-link to="/puma" class="navbar-item">Puma</router-link>
-              <router-link to="/reebok" class="navbar-item">Reebok</router-link>
-              <router-link to="/vans" class="navbar-item">Vans</router-link>
-              <router-link to="/volcom" class="navbar-item">Volcom</router-link>
+              <Link to="marca/Adidas" class="navbar-item">Adidas</Link>
+              <Link to="marca/DC" class="navbar-item">DC</Link>
+              <Link to="marca/Jansport" class="navbar-item">Jansport</Link>
+              <Link to="marca/Nike" class="navbar-item">Nike</Link>
+              <Link to="marca/Puma" class="navbar-item">Puma</Link>
+              <Link to="marca/Reebok" class="navbar-item">Reebok</Link>
+              <Link to="marca/Vans" class="navbar-item">Vans</Link>
+              <Link to="marca/Volcom" class="navbar-item">Volcom</Link>
             </div>
             
           </div>
-          <router-link to="/ubicacion" class="navbar-item">Ubicaciones</router-link>
+          
         </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-light">
+          <Link to='/cart' class="button is-light">
             <CarWidget />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
