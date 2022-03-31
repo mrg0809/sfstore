@@ -11,10 +11,10 @@ function ItemDetail({producto}) {
             
             <div class="column mx-5 px-6">
 
-                    <article class="message is-dark mx-5">
+                    <article class="message is-large is-dark mx-5">
                         <div class="message-header">
                             <p>{producto.modelo}</p>
-                            <button class="delete" aria-label="delete"></button>
+                            <p class="success" aria-label="delete">${producto.precio}</p>
                         </div>
                         
                         <div class="message-body has-text-left">

@@ -6,7 +6,7 @@ function Item({producto}) {
             <div class="card">
                 <div class="card-image">
                     <figure class="image is-square">
-                        <img src="https://images.vans.com/is/image/VansEU/VN000EE3BKA-HERO" alt={producto.modelo} />
+                        <img src={producto.foto} alt={producto.modelo} />
                     </figure>
                 </div>
                 <div class="card-content">
