@@ -1,4 +1,11 @@
+import ItemCount from "../ItemCount/ItemCount"
+
 function ItemDetail({producto}) {
+
+    function onAdd(cant) {
+        console.log(cant)
+    }
+
     return (
         
         <div class="columns is-vcentered">
@@ -25,6 +32,7 @@ function ItemDetail({producto}) {
                             <p>Categoría: {producto.categoria}</p>
                             <p>Subcategoria: {producto.subcategoria}</p>
                         </div>
+                        <ItemCount initial={1} stock={10} onAdd={onAdd} />
                     </article>      
             </div>
             

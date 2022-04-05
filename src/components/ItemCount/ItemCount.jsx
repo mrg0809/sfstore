@@ -12,15 +12,19 @@ function ItemCount({stock, initial, onAdd}) {
         setCount(count - 1);
     }
 
+    const agregar = () => {
+        onAdd(count)
+    }
+
     return (
         <div class="has-addons is-centered">
             <div class="buttons has-addons is-centered">
-                <button class="button" onClick={()=>removeItem()} disabled={count<1 ? true:false}>-</button>
+                <button class="button" onClick={()=>removeItem()} disabled={count<2 ? true:false}>-</button>
                 <button class="button is-info is-selected">{count}</button>
-                <button class="button" onClick={()=>addItem()} disabled={count==inv ? true:false}>+</button>
+                <button class="button" onClick={()=>addItem()} disabled={count==stock ? true:false}>+</button>
             </div>
             
-            <button class="button is-success">Agregar</button>
+            <button class="button is-success" onClick={agregar}>Agregar</button>
         </div>
         
        
