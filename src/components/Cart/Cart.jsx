@@ -1,7 +1,11 @@
+import { useCartContext } from "../../context/cartContext";
+
 function Cart() {
+
+    const {cartList} = useCartContext()
     return (
         <div>
-            Cart
+            {cartList.map(prod => <li key={prod.id} > nombre: {prod.modelo} cantidad: {prod.cantidad}</li>)}
         </div>
       );
     };
