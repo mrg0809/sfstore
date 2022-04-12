@@ -17,12 +17,16 @@ function CartContextProvider({children}) {
     const removeCart = () => {
         setCartList([])
     }
+
+    const totalCart = cartList.reduce((a, b) => a+b, 0)
     
 
     return (
         <CartContext.Provider value={{
             cartList,
-            addToCart
+            addToCart,
+            removeCart,
+            totalCart
         }}>
             {children}
         </CartContext.Provider>
