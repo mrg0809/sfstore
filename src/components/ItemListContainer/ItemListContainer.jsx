@@ -2,12 +2,18 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getFetch } from "../helpers/getFetch";
 import ItemList from "../ItemList/ItemList";
+import { getFirestore } from 'firebase/firestore'
 
 function ItemListContainer({saludo}) {
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
     const { marca, subfamilia } = useParams()
-    useEffect(()=> {
+
+useEffect(()=>{
+    const querydb = getFirestore()
+})
+
+    /* useEffect(()=> {
         if (marca) {
             getFetch
             .then(resp => setProductos(resp.filter(item=>item.marca===marca)))
@@ -24,7 +30,7 @@ function ItemListContainer({saludo}) {
             .catch(err => console.log(err))
             .finally(()=> setLoading(false))
         }
-        }, [marca, subfamilia])
+        }, [marca, subfamilia]) */
     return (
         <div>
             <article class="message is-danger">
