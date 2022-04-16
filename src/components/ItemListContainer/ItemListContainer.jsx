@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getFetch } from "../helpers/getFetch";
 import ItemList from "../ItemList/ItemList";
-import { getFirestore } from 'firebase/firestore'
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 
 function ItemListContainer({saludo}) {
     const [productos, setProductos] = useState([])
@@ -11,7 +11,27 @@ function ItemListContainer({saludo}) {
 
 useEffect(()=>{
     const querydb = getFirestore()
-})
+    const queryCollection = collection(querydb, 'productos')
+   
+
+    if (marca) {
+        getDocs(query(queryCollection, where('marca', '==', marca)))
+        .then(resp => setProductos( resp.docs.map(item => ( { id: item.id, ...item.data() }))))
+        .catch(err => console.log(err))
+        .finally(()=> setLoading(false)) 
+    } else if (subfamilia) {
+        getDocs(query(queryCollection, where('subfamilia', '==', subfamilia)))
+        .then(resp => setProductos( resp.docs.map(item => ( { id: item.id, ...item.data() }))))
+        .catch(err => console.log(err))
+        .finally(()=> setLoading(false))
+    } else {
+        getDocs(queryCollection)
+        .then(resp => setProductos( resp.docs.map(item => ( { id: item.id, ...item.data() }))))
+        .catch(err => console.log(err))
+        .finally(()=> setLoading(false))
+    }
+}, [marca, subfamilia])
+
 
     /* useEffect(()=> {
         if (marca) {

@@ -19,7 +19,7 @@ function Item({producto}) {
                         <div class="content">
                             {producto.descripcion}
                         <hr />
-                            <Link to={`/detalle/${producto.modelo}`}>
+                            <Link to={`/detalle/${producto.id}`}>
                                 <button class="button is-info is-light is-outlined is-fullwidth">Detalle</button>
                             </Link>    
                         </div>
