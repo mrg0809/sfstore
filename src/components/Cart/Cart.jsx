@@ -2,8 +2,7 @@ import { useCartContext } from "../../context/cartContext";
 
 function Cart() {
 
-    const {cartList, removeCart, totalCart, removeItem} = useCartContext()
-    console.log(cartList)
+    const {cartList, removeCart, totalCart, removeItem, itemQty} = useCartContext()
     return (
         <table className="table is-hoverable is-fullwidht">
             <thead>
@@ -20,30 +19,32 @@ function Cart() {
                 <th>Articulos:</th>
                 <th>{cartList.length}</th>
                 <th>Total Piezas:</th>
-                <th>totalCart</th>
-                <th>Gran Total:</th>
-                <th>Totaldinero</th>
+                <th>{itemQty()}</th>
+                <th>Gran Total: </th>
+                <th>${totalCart()}</th>
                 <th></th>
                 <th><button className="button is-danger" onClick={()=>removeCart()}>Eliminar carro</button></th>
             </tfoot>
-            <tbody>
+            
 
                 {cartList.map(prod => (
-                <tr>
-                    <td> <figure className="image is-64x64"><img src={prod.foto} alt={prod.modelo}/></figure> </td>
-                    <td> {prod.modelo} </td>
-                    <td> ${prod.precio} </td>
-                    <td> <table className="table is-striped is-bordered">
-                            <thead><th>{prod.talla}</th></thead>
-                            <tbody><td>{prod.cantidad}</td></tbody>
-                        </table>
-                    </td>
-                    <td>{prod.cantidad}</td>
-                    <td>${prod.precio*prod.cantidad}</td>
-                    <td><button className="button is-info">Modificar</button></td>
-                    <td><button className="button is-danger" onClick={()=>removeItem(prod.modelo)}>Eliminar</button></td>
-                </tr> ))}
-            </tbody>
+                <tbody key={prod.id}>
+                    <tr>
+                        <td> <figure className="image is-64x64"><img src={prod.foto} alt={prod.modelo}/></figure> </td>
+                        <td> {prod.modelo} </td>
+                        <td> ${prod.precio} </td>
+                        <td> <table className="table is-striped is-bordered">
+                                <thead><th>{prod.talla}</th></thead>
+                                <tbody><td>{prod.cantidad}</td></tbody>
+                            </table>
+                        </td>
+                        <td>{prod.cantidad}</td>
+                        <td>${prod.precio*prod.cantidad}</td>
+                        <td><button className="button is-info">Modificar</button></td>
+                        <td><button className="button is-danger" onClick={()=>removeItem(prod.modelo)}>Eliminar</button></td>
+                    </tr> 
+                </tbody>
+            ))}
         </table>
       );
     };
