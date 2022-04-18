@@ -1,3 +1,4 @@
+import { prettyDOM } from "@testing-library/react";
 import { createContext, useContext, useState } from "react";
 
 const CartContext = createContext([]);
@@ -8,10 +9,23 @@ function CartContextProvider({children}) {
     const [cartList, setCartList] = useState([])
 
     const addToCart = (item) => {
-        setCartList([
-            ...cartList,
-            item
-        ])
+        const idx = cartList.findIndex(prod => item.id === prod.id)
+
+        if (idx !== -1) {
+            const newCartList = cartList
+            const newCant = cartList[idx].cantidad + item.cantidad
+            newCartList[idx].cantidad = newCant
+            setCartList( [...newCartList] )
+
+        } else {
+            setCartList([
+                ...cartList,
+                item
+            ])
+
+        }
+       
+        
     }
 
     const removeCart = () => {
