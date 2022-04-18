@@ -18,7 +18,15 @@ function CartContextProvider({children}) {
         setCartList([])
     }
 
+    const itemQty = () => {
+        return cartList.reduce((acum, prod) => acum += prod.cantidad, 0)
+    }
+
     const totalCart = cartList.reduce((a, b) => a+b, 0)
+
+    const removeItem = (modelo)=> {
+        setCartList(cartList.filter(prod => prod.modelo !== modelo))
+    }
     
 
     return (
@@ -26,7 +34,9 @@ function CartContextProvider({children}) {
             cartList,
             addToCart,
             removeCart,
-            totalCart
+            totalCart,
+            removeItem,
+            itemQty
         }}>
             {children}
         </CartContext.Provider>

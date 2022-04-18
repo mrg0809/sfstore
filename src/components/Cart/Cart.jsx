@@ -2,7 +2,7 @@ import { useCartContext } from "../../context/cartContext";
 
 function Cart() {
 
-    const {cartList, removeCart, totalCart} = useCartContext()
+    const {cartList, removeCart, totalCart, removeItem} = useCartContext()
     console.log(cartList)
     return (
         <table className="table is-hoverable is-fullwidht">
@@ -41,7 +41,7 @@ function Cart() {
                     <td>{prod.cantidad}</td>
                     <td>${prod.precio*prod.cantidad}</td>
                     <td><button className="button is-info">Modificar</button></td>
-                    <td><button className="button is-danger">Eliminar</button></td>
+                    <td><button className="button is-danger" onClick={()=>removeItem(prod.modelo)}>Eliminar</button></td>
                 </tr> ))}
             </tbody>
         </table>

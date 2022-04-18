@@ -4,6 +4,7 @@ import ItemCount from "../ItemCount/ItemCount"
 function ItemDetail({producto}) {
 
     const {addToCart, cartList} = useCartContext()
+    console.log(producto)
 
     function onAdd(cant) {
         console.log(cant)
