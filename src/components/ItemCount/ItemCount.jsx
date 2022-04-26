@@ -16,14 +16,14 @@ const ItemCount = ({stock, initial, onAdd}) => {
     }
 
     return (
-        <div class="has-addons is-centered">
-            <div class="buttons has-addons is-centered">
-                <button class="button" onClick={()=>removeItem()} disabled={count<2 ? true:false}>-</button>
-                <button class="button is-info is-selected">{count}</button>
-                <button class="button" onClick={()=>addItem()} disabled={count===stock ? true:false}>+</button>
+        <div className="has-addons is-centered">
+            <div className="buttons has-addons is-centered">
+                <button className="button" onClick={()=>removeItem()} disabled={count<2 ? true:false}>-</button>
+                <button className="button is-info is-selected">{count}</button>
+                <button className="button" onClick={()=>addItem()} disabled={count===stock ? true:false}>+</button>
             </div>
             
-            <button class="button is-success" onClick={agregar}>Agregar</button>
+            <button className="button is-success" onClick={agregar}>Agregar</button>
         </div>
         
        

@@ -53,15 +53,15 @@ useEffect(()=>{
         }, [marca, subfamilia]) */
     return (
         <div>
-            <article class="message is-danger">
-                <div class="message-body">
+            <article className="message is-danger">
+                <div className="message-body">
                     <strong>{saludo}</strong>
                 </div>
             </article>
             { loading ?
                 <img src='https://c.tenor.com/0iK9a1WkT40AAAAC/loading-white.gif' />
             :
-                <div class='columns is-multiline'>
+                <div className='columns is-multiline'>
                     <ItemList productos={productos} />
                 </div>
             }
