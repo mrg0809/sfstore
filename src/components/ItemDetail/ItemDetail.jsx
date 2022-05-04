@@ -1,4 +1,4 @@
-import { useCartContext } from "../../context/cartContext"
+import { useCartContext } from "../../context/CartContext"
 import ItemCount from "../ItemCount/ItemCount"
 
 function ItemDetail({producto}) {
@@ -15,10 +15,9 @@ function ItemDetail({producto}) {
         <div className="columns is-vcentered">
                    
             <div className="column is-two-fifths mx-5">
-                <img src={producto.foto} />
+                <img src={producto.foto} alt={producto.name} />
                 
-            </div>
-            
+            </div>         
             
             <div className="column mx-5 px-6">
 
